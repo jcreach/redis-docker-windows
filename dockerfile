@@ -4,15 +4,14 @@ LABEL author="Julien Creach"
 LABEL maintainer="julien.creach@protonmail.com"
 
 USER ContainerAdministrator
-
 SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Env var redis
 RUN $newPath = ('c:\redis;{0}' -f $env:PATH); 	Write-Host ('Updating PATH: {0}' -f $newPath); 	setx /M PATH $newPath;
 
 # Download redis
-ARG REDIS_VERSION=3.0.504
-ADD https://github.com/microsoftarchive/redis/releases/download/win-${REDIS_VERSION}/Redis-x64-${REDIS_VERSION}.zip redis.zip
+ARG REDIS_VERSION=5.0.14
+ADD https://github.com/tporadowski/redis/releases/download/v${REDIS_VERSION}/Redis-x64-${REDIS_VERSION}.zip redis.zip
 
 # Install redis
 RUN Expand-Archive .\redis.zip -DestinationPath c:\redis;
