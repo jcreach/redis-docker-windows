@@ -4,7 +4,7 @@ Redis image for Windows
 
 ## Overview
 
-Quick implementation of redis for docker windows. See this link link : [redis for Windows](https://github.com/tporadowski/redis).
+Quick implementation of redis for docker windows. For more information see this link : [redis for Windows](https://github.com/tporadowski/redis).
 
 ## How to use
 
