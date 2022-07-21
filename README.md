@@ -4,24 +4,30 @@ Redis image for Windows
 
 ## Overview
 
-Hugo is a static HTML and CSS website generator written in Go. See this link link : [redis for Windows](https://github.com/tporadowski/redis).
+Quick implementation of redis for docker windows. See this link link : [redis for Windows](https://github.com/tporadowski/redis).
 
 ## How to use
 
 ### Use pre-built docker image
 
-You can find the pre-build docker image on [Docker Hub](https://hub.docker.com/r/jcreach/hugo-framework).
+You can find the pre-build docker image on [Docker Hub](https://hub.docker.com/r/jcreach/redis).
 
 Pull it :
 
 ```powershell
-docker pull jcreach/hugo-framework
+docker pull jcreach/redis
 ```
 
 Run it like that : 
 
 ```powershell
-docker run -name hello-hugo -p 1313:1313 -v c:\path\to\hugo\project:c:\hugo-site -e HUGO_BASEURL=http://localhost jcreach/hugo-framework:latest
+docker run --name my-redis -p 6379:6379 -d jcreach/redis:5.0.14.1-lts-nanoserver-1809
+```
+
+Or with a password :
+
+```powershell
+docker run --name my-redis -p 6379:6379 -d jcreach/redis:5.0.14.1-lts-nanoserver-1809 --requirepass MySuperPassword
 ```
 
 ### Build your own
